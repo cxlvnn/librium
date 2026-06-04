@@ -1,23 +1,17 @@
 <template>
-    <div
-        class="bg-amber-900 text-zinc-50 py-5 flex flex-col items-center justify-center"
-    >
-        <div>
-            <h1>Count: {{ counter }}</h1>
-        </div>
-        <div>
-            <Button @click="increaseCounter" text="Click me" />
-        </div>
+    <div class="min-h-screen flex flex-col">
+        <Header />
+
+        <main class="flex-1 w-full">
+            <div class="max-w-5xl mx-auto px-4 py-8">
+                <slot />
+            </div>
+        </main>
+        <Footer />
     </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
-import Button from "./components/Button.vue";
-
-const counter = ref(0);
-
-const increaseCounter = () => {
-    counter.value++;
-};
+import Footer from "./components/Footer.vue";
+import Header from "./components/Header.vue";
 </script>

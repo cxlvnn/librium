@@ -14,7 +14,7 @@ class UserController extends Controller
             'email' => 'behruz@gmail.com',
         ];
 
-        return Inertia::render('Index', [
+        return Inertia::render('Home', [
             'data' => $data,
         ]);
     }

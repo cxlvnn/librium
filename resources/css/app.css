@@ -1,9 +1,94 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+@source "../../storage/framework/views/*.php";
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+
+
+@plugin "daisyui";
+
+@pluhin "daisyui" {
+    --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+    --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@plugin "daisyui/theme" {
+    name: "bookshelf";
+    default: true;
+    prefersdark: false;
+    color-scheme: "light";
+    --color-base-100: oklch(96.5% 0.008 85);
+    --color-base-200: oklch(93% 0.01 85);
+    --color-base-300: oklch(88% 0.012 85);
+    --color-base-content: oklch(18% 0.025 160);
+    --color-primary: oklch(18% 0.025 160);
+    --color-primary-content: oklch(96.5% 0.008 85);
+    --color-secondary: oklch(93% 0.01 85);
+    --color-secondary-content: oklch(18% 0.025 160);
+    --color-accent: oklch(70% 0.16 165);
+    --color-accent-content: oklch(12% 0.03 160);
+    --color-neutral: oklch(18% 0.025 160);
+    --color-neutral-content: oklch(96.5% 0.008 85);
+    --color-info: oklch(70% 0.12 220);
+    --color-info-content: oklch(15% 0.03 220);
+    --color-success: oklch(70% 0.16 165);
+    --color-success-content: oklch(12% 0.03 160);
+    --color-warning: oklch(80% 0.15 80);
+    --color-warning-content: oklch(20% 0.05 80);
+    --color-error: oklch(55% 0.22 25);
+    --color-error-content: oklch(98% 0 0);
+    --radius-selector: 0rem;
+    --radius-field: 0rem;
+    --radius-box: 0rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 0;
+    --noise: 0;
+
+    --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+    --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@plugin "daisyui/theme" {
+    name: "bookshelf-dark";
+    default: false;
+    prefersdark: true;
+    color-scheme: "dark";
+    --color-base-100: oklch(13% 0.018 160);
+    --color-base-200: oklch(16% 0.02 160);
+    --color-base-300: oklch(22% 0.025 160);
+    --color-base-content: oklch(95% 0.02 150);
+    --color-primary: oklch(95% 0.02 150);
+    --color-primary-content: oklch(13% 0.018 160);
+    --color-secondary: oklch(22% 0.025 160);
+    --color-secondary-content: oklch(95% 0.02 150);
+    --color-accent: oklch(72% 0.17 165);
+    --color-accent-content: oklch(12% 0.03 160);
+    --color-neutral: oklch(22% 0.025 160);
+    --color-neutral-content: oklch(95% 0.02 150);
+    --color-info: oklch(70% 0.12 220);
+    --color-info-content: oklch(15% 0.03 220);
+    --color-success: oklch(72% 0.17 165);
+    --color-success-content: oklch(12% 0.03 160);
+    --color-warning: oklch(80% 0.15 80);
+    --color-warning-content: oklch(20% 0.05 80);
+    --color-error: oklch(65% 0.22 25);
+    --color-error-content: oklch(98% 0 0);
+    --radius-selector: 0rem;
+    --radius-field: 0rem;
+    --radius-box: 0rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 0;
+    --noise: 0;
+
+    --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+    --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
