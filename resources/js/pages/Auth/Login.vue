@@ -24,11 +24,11 @@
 
         <div class="flex justify-between text-xs text-primary/80 font-mono">
             <div>
-                <Link>Forgot password?</Link>
+                <Link class="link-hover">Forgot password?</Link>
             </div>
 
             <div>
-                <Link href="/register">Create account</Link>
+                <Link class="link-hover" href="/register">Create account</Link>
             </div>
         </div>
     </AppForm>

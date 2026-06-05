@@ -9,12 +9,15 @@
                 <h1>Your personal <span class="text-accent">library</span></h1>
             </div>
 
-            <div class="text-zinc-400 text-lg max-w-md mx-auto lg:mx-0">
+            <div
+                class="text-lg max-w-md mx-auto font-sans text-base-content/70 lg:mx-0"
+            >
                 <p>
                     Librium is a website where you can store your favorite books
                     and basically keep an eye on them. <br />
                     It is meant to be totally yours, helping you organize your
-                    books <span class="italic font-bold">in style.</span>
+                    books
+                    <span class="italic font-bold text-primary">in style.</span>
                 </p>
             </div>
 

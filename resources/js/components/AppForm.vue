@@ -1,6 +1,6 @@
 <template>
     <form>
-        <h1 class="text-4xl mb-6 font-serif">{{ title }}</h1>
+        <h1 class="text-5xl mb-6">{{ title }}</h1>
         <slot></slot>
     </form>
 </template>

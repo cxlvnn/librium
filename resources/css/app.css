@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @source "../**/*.blade.php";
+@source "../**/*.vue";
 @source "../**/*.js";
 @source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
 @source "../../storage/framework/views/*.php";
@@ -40,10 +41,6 @@
     --border: 1px;
     --depth: 0;
     --noise: 0;
-
-    --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
-    --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
-    --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 @plugin "daisyui/theme" {
@@ -79,7 +76,9 @@
     --border: 1px;
     --depth: 0;
     --noise: 0;
+}
 
+@theme {
     --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
     --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
     --font-mono: "JetBrains Mono", ui-monospace, monospace;

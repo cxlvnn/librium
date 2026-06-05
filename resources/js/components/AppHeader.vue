@@ -3,18 +3,21 @@
         <div
             class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between"
         >
-            <div class="text-2xl">
+            <div class="text-3xl font-serif">
                 <h1><Link href="/">Librium</Link></h1>
             </div>
 
-            <div class="flex items-center gap-4 font-mono text-zinc-200">
+            <div class="flex items-center space-x-6 font-mono text-xs">
                 <div>
-                    <Link href="/login" class="link link-hover">Log in</Link>
+                    <Link href="/login" class="link-hover">Log in</Link>
                 </div>
                 <div>
-                    <Link href="/register" as="button" class="btn btn-primary"
-                        >Create Account</Link
-                    >
+                    <Link href="/register">
+                        <AppButton
+                            title="Create Account"
+                            class="text-xs btn-primary"
+                        />
+                    </Link>
                 </div>
             </div>
         </div>
@@ -23,4 +26,5 @@
 
 <script setup>
 import { Link } from "@inertiajs/vue3";
+import AppButton from "./AppButton.vue";
 </script>

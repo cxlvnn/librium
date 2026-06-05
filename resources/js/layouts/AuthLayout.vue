@@ -1,12 +1,12 @@
 <template>
     <div class="flex min-h-screen">
         <div class="flex flex-col justify-between p-10 bg-base-200 flex-1">
-            <nav class="text-2xl font-medium font-serif">
+            <nav class="text-3xl font-medium font-serif">
                 <h1><Link href="/">Librium</Link></h1>
             </nav>
 
             <div class="flex flex-col gap-2">
-                <h2 class="text-base-content/80 font-serif">
+                <h2 class="text-2xl text-base-content/80 font-serif">
                     "If Allah wants to do good to a person, He makes him
                     comprehend the religion."
                 </h2>
@@ -17,7 +17,7 @@
         </div>
 
         <div class="flex items-center justify-center flex-1 w-full">
-            <div class="flex w-fit justify-center">
+            <div class="w-full max-w-sm px-6">
                 <slot />
             </div>
         </div>

@@ -1,9 +1,15 @@
 <template>
-    <Header />
-    <div class="max-w-5xl mx-auto">
-        <slot></slot>
+    <div class="min-h-screen flex flex-col">
+        <Header />
+
+        <main class="flex-1 w-full">
+           <div class="max-w-5xl mx-auto px-4 py-8">
+                <slot></slot>
+            </div>
+        </main>
+
+        <Footer />
     </div>
-    <Footer />
 </template>
 
 <script setup>
