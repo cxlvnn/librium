@@ -5,15 +5,7 @@
 @source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
 @source "../../storage/framework/views/*.php";
 
-
-
 @plugin "daisyui";
-
-@pluhin "daisyui" {
-    --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
-    --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
-    --font-mono: "JetBrains Mono", ui-monospace, monospace;
-}
 
 @plugin "daisyui/theme" {
     name: "bookshelf";

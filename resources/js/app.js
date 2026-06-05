@@ -1,6 +1,6 @@
 import { createInertiaApp } from "@inertiajs/vue3";
 import { createApp, h } from "vue";
-import AppLayout from "./App.vue";
+import AppLayout from "./layouts/AppLayout.vue";
 
 createInertiaApp({
     resolve: (name) => {
@@ -13,5 +13,9 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .mount(el);
+    },
+
+    progress: {
+        color: "#50C878",
     },
 });

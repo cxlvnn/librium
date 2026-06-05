@@ -12,7 +12,9 @@
                     <Link href="/login" class="link link-hover">Log in</Link>
                 </div>
                 <div>
-                    <button class="btn btn-primary">Create Account</button>
+                    <Link href="/register" as="button" class="btn btn-primary"
+                        >Create Account</Link
+                    >
                 </div>
             </div>
         </div>
