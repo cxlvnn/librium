@@ -3,6 +3,7 @@ import laravel from "laravel-vite-plugin";
 import { bunny } from "laravel-vite-plugin/fonts";
 import tailwindcss from "@tailwindcss/vite";
 import vue from "@vitejs/plugin-vue";
+import vuedevtools from "vite-plugin-vue-devtools";
 import inertia from "@inertiajs/vite";
 
 export default defineConfig({
@@ -22,6 +23,9 @@ export default defineConfig({
                     weights: [400, 500],
                 }),
             ],
+        }),
+        vuedevtools({
+            appendTo: "resources/js/app.js",
         }),
         vue(),
         inertia(),

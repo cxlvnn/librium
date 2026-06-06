@@ -42,6 +42,14 @@ import AppButton from "../../components/AppButton.vue";
 import { Link } from "@inertiajs/vue3";
 
 defineOptions({
-    layout: AuthLayout,
+    layout: (h, page) =>
+        h(
+            AuthLayout,
+            {
+                hadith: "If Allah wants to do good to a person, He makes him comprehend the religion.",
+                reference: "Sahih al-Bukhari 71",
+            },
+            () => page,
+        ),
 });
 </script>

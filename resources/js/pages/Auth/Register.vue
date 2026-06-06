@@ -50,6 +50,14 @@ import AppButton from "../../components/AppButton.vue";
 import { Link } from "@inertiajs/vue3";
 
 defineOptions({
-    layout: AuthLayout,
+    layout: (h, page) =>
+        h(
+            AuthLayout,
+            {
+                hadith: "Whoever takes a path upon which to obtain knowledge, Allah makes the path to Paradise easy for him.",
+                reference: "Jami` at-Tirmidhi 2646",
+            },
+            () => page,
+        ),
 });
 </script>

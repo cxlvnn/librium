@@ -7,11 +7,10 @@
 
             <div class="flex flex-col gap-2">
                 <h2 class="text-2xl text-base-content/80 font-serif">
-                    "If Allah wants to do good to a person, He makes him
-                    comprehend the religion."
+                    "{{ hadith }}"
                 </h2>
                 <p class="font-mono text-xs text-base-content/50 uppercase">
-                    - Sahih al-Bukhari 71
+                    - {{ reference }}
                 </p>
             </div>
         </div>
@@ -26,4 +25,9 @@
 
 <script setup>
 import { Link } from "@inertiajs/vue3";
+
+const props = defineProps({
+    hadith: String,
+    reference: String,
+});
 </script>
