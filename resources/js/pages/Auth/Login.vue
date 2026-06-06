@@ -1,7 +1,12 @@
 <template>
-    <AppForm class="flex flex-col gap-6" title="Welcome back.">
+    <AppForm
+        @submit.prevent="sendForm"
+        class="flex flex-col gap-6"
+        title="Welcome back."
+    >
         <div>
             <AppInput
+                v-model="form.email"
                 class="text-primary/80"
                 label="Email"
                 name="email"
@@ -11,6 +16,7 @@
 
         <div>
             <AppInput
+                v-model="form.password"
                 class="text-primary/80"
                 label="Password"
                 name="password"
@@ -39,7 +45,7 @@ import AuthLayout from "../../layouts/AuthLayout.vue";
 import AppInput from "../../components/AppInput.vue";
 import AppForm from "../../components/AppForm.vue";
 import AppButton from "../../components/AppButton.vue";
-import { Link } from "@inertiajs/vue3";
+import { Link, useForm } from "@inertiajs/vue3";
 
 defineOptions({
     layout: (h, page) =>
@@ -52,4 +58,13 @@ defineOptions({
             () => page,
         ),
 });
+
+const form = useForm({
+    email: "",
+    password: "",
+});
+
+const sendForm = () => {
+    form.post("/login");
+};
 </script>

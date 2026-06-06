@@ -6,6 +6,7 @@
             {{ label }}
         </label>
         <input
+            v-model="model"
             type="text"
             :name
             class="w-full py-3 bg-transparent outline-none border-0 border-b border-base-content/20 focus:border-accent transition-colors font-sans placeholder:text-base-content/30"
@@ -20,4 +21,6 @@ const props = defineProps({
     name: String,
     placeholder: String,
 });
+
+const model = defineModel();
 </script>
