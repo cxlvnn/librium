@@ -11,7 +11,9 @@
                 label="Name"
                 name="name"
                 placeholder="John"
+                required
             />
+            <AppError :message="form.errors.name" />
         </div>
 
         <div>
@@ -20,8 +22,11 @@
                 class="text-primary/80"
                 label="Email"
                 name="email"
+                type="email"
                 placeholder="john@librium.net"
+                required
             />
+            <AppError :message="form.errors.email" />
         </div>
 
         <div>
@@ -30,12 +35,26 @@
                 class="text-primary/80"
                 label="Password"
                 name="password"
-                placeholder="At least 8 character"
+                type="password"
+                placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
+                required
             />
+            <div class="font-sans text-sm text-primary/40 mt-2">
+                <ul class="list-disc ml-4 my-1">
+                    <li>Should be at least 8 characters</li>
+                    <li>Should contain at least 1 number</li>
+                    <li>Should contain at least 1 symbol</li>
+                </ul>
+            </div>
+            <AppError :message="form.errors.password" />
         </div>
 
         <div class="font-sans">
-            <AppButton title="Sign up" class="w-full btn-primary" />
+            <AppButton
+                :disabled="form.processing"
+                title="Sign up"
+                class="w-full btn-primary"
+            />
         </div>
 
         <div class="flex justify-center text-xs text-primary/80 font-mono">
@@ -55,6 +74,7 @@ import AppInput from "../../components/AppInput.vue";
 import AppForm from "../../components/AppForm.vue";
 import AppButton from "../../components/AppButton.vue";
 import { Link, useForm } from "@inertiajs/vue3";
+import AppError from "../../components/AppError.vue";
 
 defineOptions({
     layout: (h, page) =>

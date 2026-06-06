@@ -1,7 +1,7 @@
 <template>
     <div class="border-b border-secondary bg-base-100">
         <div
-            class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between"
+            class="max-w-5xl mx-auto px-4 py-2 flex items-center justify-between"
         >
             <div class="text-3xl font-serif">
                 <h1><Link href="/">Librium</Link></h1>

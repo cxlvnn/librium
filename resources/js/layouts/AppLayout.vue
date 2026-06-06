@@ -3,7 +3,7 @@
         <Header />
 
         <main class="flex-1 w-full">
-           <div class="max-w-5xl mx-auto px-4 py-8">
+            <div class="max-w-5xl mx-auto px-4">
                 <slot></slot>
             </div>
         </main>

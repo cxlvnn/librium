@@ -7,10 +7,11 @@
         </label>
         <input
             v-model="model"
-            type="text"
+            :type
             :name
             class="w-full py-3 bg-transparent outline-none border-0 border-b border-base-content/20 focus:border-accent transition-colors font-sans placeholder:text-base-content/30"
             :placeholder
+            :required
         />
     </div>
 </template>
@@ -20,6 +21,14 @@ const props = defineProps({
     label: String,
     name: String,
     placeholder: String,
+    type: {
+        type: String,
+        default: "text",
+    },
+    required: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 const model = defineModel();

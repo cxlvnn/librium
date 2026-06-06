@@ -29,15 +29,15 @@
         </div>
 
         <div class="flex items-center justify-center h-80 lg:h-96">
-            <BookCard
+            <LandingBookCover
                 source="/images/manhaj-as-salikeen.jpg"
                 class="-rotate-6 -mr-14 translate-y-4 lg:-mr-18 lg:translate-y-6 shadow-2xl"
             />
-            <BookCard
+            <LandingBookCover
                 source="/images/sahih-al-bukhari.jpg"
                 class="z-10 shadow-2xl"
             />
-            <BookCard
+            <LandingBookCover
                 source="/images/three-fundamental-principles.jpg"
                 class="rotate-6 -ml-14 translate-y-4 lg:-ml-18 lg:translate-y-6 shadow-2xl"
             />
@@ -47,5 +47,5 @@
 
 <script setup>
 import { Link } from "@inertiajs/vue3";
-import BookCard from "../components/BookCard.vue";
+import LandingBookCover from "../components/LandingBookCover.vue";
 </script>

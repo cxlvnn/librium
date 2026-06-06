@@ -9,8 +9,10 @@
                 v-model="form.email"
                 class="text-primary/80"
                 label="Email"
+                type="email"
                 name="email"
                 placeholder="john@librium.net"
+                required
             />
         </div>
 
@@ -19,13 +21,20 @@
                 v-model="form.password"
                 class="text-primary/80"
                 label="Password"
+                type="password"
                 name="password"
                 placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
+                required
             />
+            <AppError :message="form.errors.email" />
         </div>
 
         <div class="font-sans">
-            <AppButton title="Sign in" class="w-full btn-primary" />
+            <AppButton
+                :disabled="form.processing"
+                title="Sign in"
+                class="w-full btn-primary"
+            />
         </div>
 
         <div class="flex justify-between text-xs text-primary/80 font-mono">
@@ -46,6 +55,7 @@ import AppInput from "../../components/AppInput.vue";
 import AppForm from "../../components/AppForm.vue";
 import AppButton from "../../components/AppButton.vue";
 import { Link, useForm } from "@inertiajs/vue3";
+import AppError from "../../components/AppError.vue";
 
 defineOptions({
     layout: (h, page) =>
