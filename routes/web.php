@@ -9,7 +9,7 @@ Route::get('/', function () {
     return Inertia::render('Landing');
 });
 
-Route::middleware('web')->group(function () {
+Route::middleware('auth')->group(function () {
     Route::get('/books', [BookController::class, 'index'])->name('books.index');
 
     Route::delete('/logout', [AuthController::class, 'logout']);

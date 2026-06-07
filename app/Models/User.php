@@ -31,9 +31,8 @@ class User extends Authenticatable
         ];
     }
 
-        public function books(): HasMany
+    public function books(): HasMany
     {
         return $this->hasMany(Book::class);
     }
-k
 }

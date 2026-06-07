@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Book;
 use Inertia\Inertia;
 
 class BookController extends Controller
 {
     public function index()
     {
+        $books = Book::latest()->paginate(10);
+
         return Inertia::render('Books/Index', [
-            'user' => Auth::user(),
+            'books' => $books,
         ]);
     }
 }

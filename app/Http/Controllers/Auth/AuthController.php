@@ -27,9 +27,7 @@ class AuthController extends Controller
         if ($user = User::create($request->validated())) {
             Auth::login($user);
 
-            return Inertia::render('Home', [
-                'user' => $user,
-            ]);
+            return to_route('books.index');
         }
 
         return redirect()

@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Query\Expression;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
@@ -17,7 +18,8 @@ return new class extends Migration
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->string('title');
             $table->string('author');
-            $table->json('status')->default('reading');
+            $table->string('cover_path')->nullable();
+            $table->json('status')->default(new Expression('(JSON_OBJECT())'));
             $table->date('published_date');
             $table->text('description');
             $table->timestamps();
