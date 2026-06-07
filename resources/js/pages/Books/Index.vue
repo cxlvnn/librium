@@ -2,8 +2,11 @@
     <div
         class="flex items-center py-5 my-5 justify-between border-b border-base-300"
     >
-        <div class="text-5xl font-serif">
-            <h1>Your shelf</h1>
+        <div class="">
+            <h1 class="text-5xl font-serif">Your shelf</h1>
+            <p class="text-xs text-primary/50 font-mono mt-2 uppercase">
+                20 books &middot; 10 in progress
+            </p>
         </div>
 
         <div>
@@ -15,21 +18,9 @@
 
     <div class="flex flex-row items-center justify-between mb-2">
         <div class="flex items-center gap-1">
-            <Link
-                as="button"
-                class="text-sm bg-primary px-4 py-1 text-base-200 font-thin"
-                >All</Link
-            >
-            <Link
-                as="button"
-                class="text-sm px-4 py-1 font-medium border border-neutral-800 hover:border-primary hover:text-primary"
-                >Reading</Link
-            >
-            <Link
-                as="button"
-                class="text-sm px-4 py-1 font-medium border border-neutral-800 hover:border-primary hover:text-primary"
-                >Read</Link
-            >
+            <IndexFilterButton class="border-primary" title="All" />
+            <IndexFilterButton title="Reading" />
+            <IndexFilterButton title="Read" />
         </div>
 
         <div class="flex items-center">
@@ -40,7 +31,7 @@
                 <input
                     type="search"
                     v-model="search"
-                    class="w-full border border-neutral-800 bg-transparent py-2 pl-10 pr-3 font-mono text-sm outline-none focus:border-primary"
+                    class="w-full border border-base-300 transition-colors bg-transparent py-2 pl-10 pr-3 font-mono text-sm outline-none focus:border-primary"
                     placeholder="Search title or author"
                 />
             </div>
@@ -58,6 +49,10 @@
             status="Reading"
         />
     </div>
+
+    <div class="flex gap-1 justify-center my-6">
+        <AppPaginator :links="books.links" />
+    </div>
 </template>
 
 <script setup>
@@ -65,6 +60,8 @@ import { Link } from "@inertiajs/vue3";
 import AppButton from "../../components/AppButton.vue";
 import BookCard from "../../components/BookCard.vue";
 import IconMagnifier from "../../components/icons/IconMagnifier.vue";
+import IndexFilterButton from "../../components/IndexFilterButton.vue";
+import AppPaginator from "../../components/AppPaginator.vue";
 
 defineProps({
     books: Array,
