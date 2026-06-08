@@ -43,6 +43,7 @@
     >
         <BookCard
             v-for="book in books.data"
+            :id="book.id"
             source="/images/manhaj-as-salikeen.jpg"
             :title="book.title"
             :author="book.author"

@@ -11,6 +11,7 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/books', [BookController::class, 'index'])->name('books.index');
+    Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show');
 
     Route::delete('/logout', [AuthController::class, 'logout']);
 });
