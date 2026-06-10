@@ -56,6 +56,6 @@ const book = defineProps({
         type: String,
         default: "",
     },
-    id: String,
+    id: Number,
 });
 </script>

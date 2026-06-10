@@ -10,9 +10,12 @@
         </div>
 
         <div>
-            <Link href="/books/create">
-                <AppButton class="btn btn-primary" title="+ Add a book" />
-            </Link>
+            <Link
+                href="/books/create"
+                class="btn btn-primary font-mono"
+                as="button"
+                >+ Add a book</Link
+            >
         </div>
     </div>
 
@@ -30,7 +33,6 @@
                 />
                 <input
                     type="search"
-                    v-model="search"
                     class="w-full border border-base-300 transition-colors bg-transparent py-2 pl-10 pr-3 font-mono text-sm outline-none focus:border-primary"
                     placeholder="Search title or author"
                 />
@@ -65,6 +67,6 @@ import IndexFilterButton from "../../components/IndexFilterButton.vue";
 import AppPaginator from "../../components/AppPaginator.vue";
 
 defineProps({
-    books: Array,
+    books: Object,
 });
 </script>

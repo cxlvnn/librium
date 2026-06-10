@@ -20,4 +20,9 @@ class BookController extends Controller
     {
         return Inertia::render('Books/Show', ['book' => $book]);
     }
+
+    public function create()
+    {
+        return Inertia::render('Books/Create');
+    }
 }
