@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('author');
             $table->string('cover_path')->nullable();
             $table->json('status')->default(new Expression('(JSON_OBJECT())'));
-            $table->date('published_date');
+            $table->date('published_year');
             $table->text('description');
             $table->timestamps();
         });

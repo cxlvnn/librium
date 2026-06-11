@@ -60,7 +60,6 @@
 
 <script setup>
 import { Link } from "@inertiajs/vue3";
-import AppButton from "../../components/AppButton.vue";
 import BookCard from "../../components/BookCard.vue";
 import IconMagnifier from "../../components/icons/IconMagnifier.vue";
 import IndexFilterButton from "../../components/IndexFilterButton.vue";

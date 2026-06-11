@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreBookRequest;
 use App\Models\Book;
 use Inertia\Inertia;
 
@@ -24,5 +25,12 @@ class BookController extends Controller
     public function create()
     {
         return Inertia::render('Books/Create');
+    }
+
+    public function store(StoreBookRequest $request)
+    {
+        Book::create($request->validated());
+
+        return to_route('books.index');
     }
 }
