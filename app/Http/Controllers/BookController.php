@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreBookRequest;
 use App\Models\Book;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class BookController extends Controller
@@ -29,7 +30,12 @@ class BookController extends Controller
 
     public function store(StoreBookRequest $request)
     {
-        Book::create($request->validated());
+        $book = Auth::user()->books()->create($request->safe()->except('cover'));
+        $cover_path = $request->cover->store('covers', 'public');
+
+        $book->update([
+            'cover_path' => $cover_path,
+        ]);
 
         return to_route('books.index');
     }

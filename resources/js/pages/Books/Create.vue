@@ -3,7 +3,12 @@
         <h1 class="text-5xl font-serif">Add a book.</h1>
     </div>
 
-    <Form action="/books" method="POST" enctype="multipart/form-data" class="flex gap-8 items-start">
+    <Form
+        action="/books"
+        method="POST"
+        enctype="multipart/form-data"
+        class="flex gap-8 items-start"
+    >
         <div class="w-75 lg:w-79 shrink-0">
             <p
                 class="font-mono uppercase text-xs text-base-content/60 tracking-wide block mb-2"
@@ -13,9 +18,11 @@
             <label for="upload-cover" class="block cursor-pointer group">
                 <div
                     class="w-full aspect-2/3 overflow-hidden shadow-xl flex items-center justify-center transition-all duration-200"
-                    :class="coverPreview
-                        ? 'border border-base-300'
-                        : 'border-2 border-dashed border-base-300 hover:border-accent'"
+                    :class="
+                        coverPreview
+                            ? 'border border-base-300'
+                            : 'border-2 border-dashed border-base-300 hover:border-accent'
+                    "
                 >
                     <img
                         v-if="coverPreview"
@@ -27,20 +34,25 @@
                         v-else
                         class="flex flex-col items-center gap-3 text-base-content/40 group-hover:text-accent transition-colors duration-200"
                     >
-                        <span class="inline-flex items-center justify-center size-12">
+                        <span
+                            class="inline-flex items-center justify-center size-12"
+                        >
                             <IconUpload />
                         </span>
-                        <span class="font-mono text-xs uppercase tracking-wider">
+                        <span
+                            class="font-mono text-xs uppercase tracking-wider"
+                        >
                             Upload cover
                         </span>
                     </div>
                 </div>
             </label>
+            <AppError :message="$page.props.errors.cover" />
 
             <input
                 type="file"
                 id="upload-cover"
-                name="photo"
+                name="cover"
                 hidden
                 accept="image/*"
                 @change="onCoverChange"
@@ -48,16 +60,28 @@
         </div>
 
         <div class="flex-1 space-y-10">
-            <AppInput label="Title" name="title" placeholder="Atomic habits" />
-            <AppInput label="Author" name="author" placeholder="John Doe" />
+            <div>
+                <AppInput
+                    label="Title"
+                    name="title"
+                    placeholder="Atomic habits"
+                />
+                <AppError :message="$page.props.errors.title" />
+            </div>
 
-            <div class="flex gap-5 items-end">
-                <div class="w-122 shrink-0">
+            <div>
+                <AppInput label="Author" name="author" placeholder="John Doe" />
+                <AppError :message="$page.props.errors.author" />
+            </div>
+
+            <div class="flex gap-5 items-start">
+                <div class="w-100 shrink-0">
                     <AppInput
                         label="Year"
                         name="published_year"
                         placeholder="1998"
                     />
+                    <AppError :message="$page.props.errors.published_year" />
                 </div>
                 <label class="flex-1">
                     <span
@@ -74,7 +98,9 @@
                 </label>
             </div>
 
-            <AppTextarea label="Description" name="description" />
+            <div>
+                <AppTextarea label="Description" name="description" />
+            </div>
 
             <div class="space-x-3">
                 <button
@@ -103,6 +129,7 @@ import { Form, Link } from "@inertiajs/vue3";
 import IconUpload from "../../components/icons/IconUpload.vue";
 import AppInput from "../../components/AppInput.vue";
 import AppTextarea from "../../components/AppTextarea.vue";
+import AppError from "../../components/AppError.vue";
 
 const coverPreview = ref(null);
 

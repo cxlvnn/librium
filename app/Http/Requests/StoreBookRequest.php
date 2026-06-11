@@ -29,7 +29,14 @@ class StoreBookRequest extends FormRequest
             'description' => ['string', 'max:1000'],
             'status' => ['required', 'string', 'max:255'],
             'published_year' => ['required', Rule::date()->format('Y')],
-            'cover_path' => ['image'],
+            'cover' => ['required', 'image', 'max:10000'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'published_year' => 'The year field is required',
         ];
     }
 }

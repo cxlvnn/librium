@@ -22,7 +22,7 @@ class BookFactory extends Factory
             'title' => fake()->name('male'),
             'description' => fake()->paragraph(4),
             'author' => fake()->name('male'),
-            'published_date' => fake()->date(),
+            'published_year' => fake()->date('Y'),
         ];
     }
 }

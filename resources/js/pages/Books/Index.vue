@@ -46,14 +46,14 @@
         <BookCard
             v-for="book in books.data"
             :id="book.id"
-            source="/images/manhaj-as-salikeen.jpg"
+            :source="`/storage/${book.cover_path}`"
             :title="book.title"
             :author="book.author"
             status="Reading"
         />
     </div>
 
-    <div class="flex gap-1 justify-center my-6">
+    <div v-if="books.links.length > 3" class="flex gap-1 justify-center my-6">
         <AppPaginator :links="books.links" />
     </div>
 </template>

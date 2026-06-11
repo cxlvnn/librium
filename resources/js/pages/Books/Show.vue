@@ -5,7 +5,7 @@
 
     <div class="flex my-8 gap-8">
         <div>
-            <BookCover source="/images/manhaj-as-salikeen.jpg" />
+            <BookCover :source="`/storage/${book.cover_path}`" />
 
             <div class="flex flex-col mt-3">
                 <Link
