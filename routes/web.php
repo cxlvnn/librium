@@ -2,12 +2,9 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
-Route::get('/', function () {
-    return Inertia::render('Landing');
-});
 
 Route::middleware('auth')->group(function () {
     Route::get('/books', [BookController::class, 'index'])->name('books.index');
@@ -15,10 +12,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/books', [BookController::class, 'store'])->name('books.store');
     Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show');
 
+    Route::get('/user', [UserController::class, 'profile']);
+
     Route::delete('/logout', [AuthController::class, 'logout']);
 });
 
 Route::middleware('guest')->group(function () {
+    Route::get('/', function () {
+        return Inertia::render('Landing');
+    })->name('landing');
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
     Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 

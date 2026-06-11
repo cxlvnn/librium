@@ -46,6 +46,9 @@
 </template>
 
 <script setup>
+defineOptions({ layout: AppGuestLayout });
+
 import { Link } from "@inertiajs/vue3";
 import LandingBookCover from "../components/LandingBookCover.vue";
+import AppGuestLayout from "../layouts/AppGuestLayout.vue";
 </script>
