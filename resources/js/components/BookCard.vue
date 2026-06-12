@@ -28,7 +28,7 @@
                     </p>
                 </div>
 
-                <BookStatus status="Reading" />
+                <BookStatus :status />
             </div>
         </div>
     </Link>

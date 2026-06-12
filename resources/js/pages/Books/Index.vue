@@ -21,9 +21,23 @@
 
     <div class="flex flex-row items-center justify-between mb-2">
         <div class="flex items-center gap-1">
-            <IndexFilterButton class="border-primary" title="All" />
-            <IndexFilterButton title="Reading" />
-            <IndexFilterButton title="Read" />
+            <IndexFilterButton
+                :class="{ 'border-primary': $page.url == `/books` }"
+                href="/books"
+                title="All"
+            />
+            <IndexFilterButton
+                :class="{
+                    'border-primary': $page.url == `/books?status=reading`,
+                }"
+                href="/books?status=reading"
+                title="Reading"
+            />
+            <IndexFilterButton
+                :class="{ 'border-primary': $page.url == `/books?status=read` }"
+                href="/books?status=read"
+                title="Read"
+            />
         </div>
 
         <div class="flex items-center">
@@ -49,7 +63,7 @@
             :source="`/storage/${book.cover_path}`"
             :title="book.title"
             :author="book.author"
-            status="Reading"
+            :status="book.status"
         />
     </div>
 
