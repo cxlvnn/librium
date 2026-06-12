@@ -5,7 +5,8 @@
         <div class="">
             <h1 class="text-5xl font-serif">Your shelf</h1>
             <p class="text-xs text-primary/50 font-mono mt-2 uppercase">
-                20 books &middot; 10 in progress
+                {{ counts.books_count }} books &middot;
+                {{ counts.reading_count }} in progress
             </p>
         </div>
 
@@ -79,7 +80,8 @@ import IconMagnifier from "../../components/icons/IconMagnifier.vue";
 import IndexFilterButton from "../../components/IndexFilterButton.vue";
 import AppPaginator from "../../components/AppPaginator.vue";
 
-defineProps({
+const props = defineProps({
     books: Object,
+    counts: Object,
 });
 </script>

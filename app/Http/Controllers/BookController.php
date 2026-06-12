@@ -4,17 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreBookRequest;
 use App\Models\Book;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class BookController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $books = Book::latest()->paginate(10);
+        $books = Book::latest()->when($request->status, fn ($query, $status) => $query->where('status', $status))->paginate(10);
+
+        $books_count = Book::count();
+        $reading_count = Book::where('status', 'Reading')->count();
 
         return Inertia::render('Books/Index', [
             'books' => $books,
+            'counts' => [
+                'books_count' => $books_count,
+                'reading_count' => $reading_count,
+            ],
         ]);
     }
 
@@ -36,6 +44,13 @@ class BookController extends Controller
         $book->update([
             'cover_path' => $cover_path,
         ]);
+
+        return to_route('books.index');
+    }
+
+    public function destroy(Book $book)
+    {
+        $book->deleteOrFail();
 
         return to_route('books.index');
     }
