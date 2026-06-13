@@ -1,0 +1,162 @@
+<template>
+    <div class="my-10">
+        <h1 class="text-5xl font-serif">Update a book.</h1>
+    </div>
+
+    <Form
+        :action="`/books/edit/${book.id}`"
+        method="PUT"
+        enctype="multipart/form-data"
+        class="flex gap-8 items-start"
+    >
+        <div class="w-75 lg:w-79 shrink-0">
+            <p
+                class="font-mono uppercase text-xs text-base-content/60 tracking-wide block mb-2"
+            >
+                Cover
+            </p>
+            <label for="upload-cover" class="block cursor-pointer group">
+                <div
+                    class="w-full aspect-2/3 overflow-hidden shadow-xl flex items-center justify-center transition-all duration-200"
+                    :class="
+                        coverPreview
+                            ? 'border border-base-300'
+                            : 'border-2 border-dashed border-base-300 hover:border-accent'
+                    "
+                >
+                    <img
+                        v-if="coverPreview"
+                        :src="coverPreview"
+                        class="w-full h-full object-cover"
+                    />
+
+                    <div
+                        v-else
+                        class="flex flex-col items-center gap-3 text-base-content/40 group-hover:text-accent transition-colors duration-200"
+                    >
+                        <span
+                            class="inline-flex items-center justify-center size-12"
+                        >
+                            <IconUpload />
+                        </span>
+                        <span
+                            class="font-mono text-xs uppercase tracking-wider"
+                        >
+                            Update cover
+                        </span>
+                    </div>
+                </div>
+            </label>
+            <AppError :message="$page.props.errors.cover" />
+
+            <input
+                type="file"
+                id="upload-cover"
+                name="cover"
+                hidden
+                accept="image/*"
+                @change="onCoverChange"
+            />
+        </div>
+
+        <div class="flex-1 space-y-10">
+            <div>
+                <AppInput
+                    label="Title"
+                    name="title"
+                    v-model="book.title"
+                    placeholder="Atomic habits"
+                />
+                <AppError :message="$page.props.errors.title" />
+            </div>
+
+            <div>
+                <AppInput
+                    v-model="book.author"
+                    label="Author"
+                    name="author"
+                    placeholder="John Doe"
+                />
+                <AppError :message="$page.props.errors.author" />
+            </div>
+
+            <div class="flex gap-5 items-start">
+                <div class="w-100 shrink-0">
+                    <AppInput
+                        v-model="book.published_year"
+                        label="Year"
+                        name="published_year"
+                        placeholder="1998"
+                    />
+                    <AppError :message="$page.props.errors.published_year" />
+                </div>
+                <label class="flex-1">
+                    <span
+                        class="font-mono uppercase text-xs text-base-content/60 tracking-wide block mb-2"
+                        >Status</span
+                    >
+                    <select
+                        v-model="book.status"
+                        name="status"
+                        class="w-full py-3 bg-transparent outline-none border-0 border-b border-base-content/20 focus:border-accent transition-colors font-sans appearance-none cursor-pointer"
+                    >
+                        <option>Reading</option>
+                        <option>Read</option>
+                    </select>
+                </label>
+            </div>
+
+            <div>
+                <AppTextarea
+                    v-model="book.description"
+                    label="Description"
+                    name="description"
+                />
+            </div>
+
+            <div class="space-x-3">
+                <button
+                    class="btn btn-primary text-xs font-mono uppercase tracking-widest font-light"
+                    type="submit"
+                >
+                    Update
+                </button>
+
+                <Link
+                    class="btn bg-transparent border border-primary/20 hover:border-primary text-xs font-mono uppercase tracking-widest font-light"
+                    as="button"
+                    href="/books"
+                >
+                    Cancel
+                </Link>
+            </div>
+        </div>
+    </Form>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import { Form, Link } from "@inertiajs/vue3";
+
+import IconUpload from "../../components/icons/IconUpload.vue";
+import AppInput from "../../components/AppInput.vue";
+import AppTextarea from "../../components/AppTextarea.vue";
+import AppError from "../../components/AppError.vue";
+
+const coverPreview = ref(null);
+
+const onCoverChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            coverPreview.value = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+};
+
+defineProps({
+    book: Object,
+});
+</script>

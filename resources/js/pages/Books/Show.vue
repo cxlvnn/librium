@@ -1,5 +1,5 @@
 <template>
-    <div class="my-5">
+    <div class="mt-10 mb-8">
         <AppBackButton />
     </div>
 
@@ -28,7 +28,7 @@
 
         <div>
             <div class="border-b border-base-300">
-                <BookStatus status="Reading" />
+                <BookStatus :status="book.status" />
 
                 <h1 class="font-medium py-3 text-5xl">{{ book.title }}</h1>
 

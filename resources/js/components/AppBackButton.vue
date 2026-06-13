@@ -1,7 +1,7 @@
 <template>
     <Link
         href="/books"
-        class="font-mono font-thin uppercase text-xs tracking-widest text-primary/50"
+        class="font-mono font-thin uppercase text-xs tracking-widest text-primary/50 hover:text-primary transition-colors"
     >
         <div class="flex gap-2"><IconArrowLeft /> {{ title }}</div>
     </Link>

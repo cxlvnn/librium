@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreBookRequest;
+use App\Http\Requests\UpdateBookRequest;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -46,6 +47,24 @@ class BookController extends Controller
         ]);
 
         return to_route('books.index');
+    }
+
+    public function edit(Book $book)
+    {
+        return Inertia::render('Books/Edit', ['book' => $book]);
+    }
+
+    public function update(UpdateBookRequest $request, Book $book)
+    {
+        $book->update($request->safe()->except('cover'));
+        if ($request->has('cover')) {
+            $cover_path = $request->cover->store('covers', 'public');
+            $book->update([
+                'cover_path' => $cover_path,
+            ]);
+        }
+
+        return to_route('books.show', ['book' => $book]);
     }
 
     public function destroy(Book $book)
